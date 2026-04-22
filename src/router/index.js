@@ -27,6 +27,7 @@ const routes = [
   { path: '/preferences', component: () => import('../views/AccountPreferences.vue') 
   },
   { path: '/security', component: () => import('../views/Security.vue') },
+  { path: '/inventory/records', component: () => import('../views/InventoryRecords.vue') },
 ]
 
 export const router = createRouter({

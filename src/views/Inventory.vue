@@ -9,6 +9,18 @@
           <p class="text-sm text-slate-500 mt-0.5">Select a category to begin documenting items.</p>
         </div>
         <div class="flex items-center gap-3">
+          <!-- View Toggle Buttons -->
+          <div class="flex gap-2 mr-2">
+            <button class="p-2.5 bg-sky-500 rounded-xl text-white shadow-sm transition-all">
+              <PhPencilLine :size="20" />
+            </button>
+            <RouterLink to="/inventory/records" custom v-slot="{ navigate }">
+              <button @click="navigate" class="p-2.5 bg-white rounded-xl text-slate-400 shadow-sm border border-slate-50 hover:text-sky-500 transition-all">
+                <PhTable :size="20" />
+              </button>
+            </RouterLink>
+          </div>
+          
           <!-- Notifications Dropdown -->
           <div class="relative">
             <button 
@@ -648,7 +660,7 @@ import {
   PhStack, PhMusicNotes, PhCookingPot, PhBell, PhCake, PhHeart,
   PhCaretDown, PhUser, PhGear, PhShield, PhSignOut, PhKeyboard,
   PhPencilLine, PhUpload, PhCloudArrowUp, PhSpinner, PhCheckCircle, 
-  PhX, PhTag, PhBowlFood, PhOven
+  PhX, PhTag, PhBowlFood, PhOven, PhTable
 } from '@phosphor-icons/vue'
 import Sidebar from '../components/Sidebar.vue'
 import * as XLSX from 'xlsx'
@@ -665,11 +677,15 @@ const notifications = ref([
 ])
 
 const unreadNotifications = computed(() => notifications.value.filter(n => !n.read))
+
 const readNotification = (id) => {
   const notification = notifications.value.find(n => n.id === id)
   if (notification) notification.read = true
 }
-const markAllAsRead = () => notifications.value.forEach(n => n.read = true)
+
+const markAllAsRead = () => {
+  notifications.value.forEach(n => n.read = true)
+}
 
 // UI State
 const inputMethod = ref('manual')
@@ -952,3 +968,25 @@ const saveResource = () => {
   alert(`${itemType} saved successfully!`)
 }
 </script>
+
+<style scoped>
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: all 0.2s ease;
+}
+
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+</style>
