@@ -112,10 +112,12 @@
                 </div>
                 
                 <div class="border-t border-slate-50 py-1">
-                  <button class="w-full flex items-center gap-2 px-3 py-2 text-xs text-red-500 hover:bg-red-50 transition-colors text-left font-medium">
-                    <PhSignOut :size="16" />
-                    Logout
-                  </button>
+                  <RouterLink to="/login" custom v-slot="{ navigate }">
+                    <button @click="navigate" class="w-full flex items-center gap-2 px-3 py-2 text-xs text-red-500 hover:bg-red-50 transition-colors text-left font-medium">
+                      <PhSignOut :size="16" />
+                      Logout
+                    </button>
+                  </RouterLink>
                 </div>
               </div>
             </Transition>
