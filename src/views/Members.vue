@@ -97,18 +97,24 @@
                 </div>
                 
                 <div class="py-1">
-                  <button class="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-50 transition-colors text-left">
-                    <PhUser :size="16" />
-                    Profile Settings
-                  </button>
-                  <button class="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-50 transition-colors text-left">
-                    <PhGear :size="16" />
-                    Account Preferences
-                  </button>
-                  <button class="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-50 transition-colors text-left">
-                    <PhShield :size="16" />
-                    Security
-                  </button>
+                  <RouterLink to="/profile" custom v-slot="{ navigate }">
+                    <button @click="navigate" class="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-50 transition-colors text-left">
+                      <PhUser :size="16" />
+                      Profile Settings
+                    </button>
+                  </RouterLink>
+                  <RouterLink to="/preferences" custom v-slot="{ navigate }">
+                    <button @click="navigate" class="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-50 transition-colors text-left">
+                      <PhGear :size="16" />
+                      Account Preferences
+                    </button>
+                  </RouterLink>
+                  <RouterLink to="/security" custom v-slot="{ navigate }">
+                    <button @click="navigate" class="w-full flex items-center gap-2 px-3 py-2 text-xs text-slate-600 hover:bg-slate-50 transition-colors text-left">
+                      <PhGear :size="16" />
+                      Security
+                    </button>
+                  </RouterLink>
                 </div>
                 
                 <div class="border-t border-slate-50 py-1">

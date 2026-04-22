@@ -21,6 +21,12 @@ const routes = [
     path: '/members', 
     component: () => import('../views/Members.vue') 
   },
+  { path: '/profile', 
+    component: () => import('../views/ProfileSettings.vue') 
+  },
+  { path: '/preferences', component: () => import('../views/AccountPreferences.vue') 
+  },
+  { path: '/security', component: () => import('../views/Security.vue') },
 ]
 
 export const router = createRouter({
