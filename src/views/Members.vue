@@ -440,7 +440,7 @@ const newMember = ref({
 })
 
 const members = ref([
-  { id: 1, name: 'Marc Arcenas', email: 'marc@example.com', phone: '0912-345-6789', ministries: ['Media', 'Worship'] },
+  { id: 1, name: 'Rain Daring', email: 'r.daring@example.com', phone: '0912-345-6789', ministries: ['Media', 'Worship'] },
   { id: 2, name: 'Sarah Jenkins', email: 'sarah.j@outlook.com', phone: '0922-111-2222', ministries: ['Kids'] },
   { id: 3, name: 'David Miller', email: '', phone: '0945-888-9999', ministries: ['Worship'] },
   { id: 4, name: 'Grace Hopper', email: 'grace.h@church.org', phone: '0917-000-1111', ministries: [] },
